@@ -11,6 +11,7 @@ export const productValidationSchema = z.object({
         rating: z.number().min(0).max(5, 'Rating must be between 0 and 5'), //will use react rating
         price: z.number().positive('Price must be a positive number'),
         image: z.string().url('Image URL must be valid'),
+        isDeleted: z.boolean()
       })
 });
 

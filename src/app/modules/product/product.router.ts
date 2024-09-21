@@ -11,19 +11,12 @@ router.post(
   ProductControllers.createProduct,
 );
 
-router.get(
-  '/:_id',
-  ProductControllers.getASingleProduct
-)
+router.get('/:_id', ProductControllers.getASingleProduct);
 
-router.get(
-  '/',
-  ProductControllers.getAllProducts
-)
+router.get('/', ProductControllers.getAllProducts);
 
-router.post(
-    '/cart',
-    ProductControllers.cartProducts
-)
+router.patch('/:_id', ProductControllers.deleteAProduct);
+
+router.post('/cart', ProductControllers.cartProducts);
 
 export const ProductRoutes = router;

@@ -39,6 +39,9 @@ const productSchema = new Schema<IProduct>({
     type: String,
     required: true,
   },
+  isDeleted: {
+    type: Boolean
+  }
 }, { timestamps: true });
 
 export const Product = mongoose.model<IProduct>('Product', productSchema);
