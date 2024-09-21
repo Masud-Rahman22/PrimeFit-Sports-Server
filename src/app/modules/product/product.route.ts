@@ -11,4 +11,4 @@ router.post(
   ProductControllers.createProduct,
 );
 
-export const RentalRoutes = router;
+export const ProductRoutes = router;
