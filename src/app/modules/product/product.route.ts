@@ -11,6 +11,11 @@ router.post(
   ProductControllers.createProduct,
 );
 
+router.get(
+  '/:_id',
+  ProductControllers.getASingleProduct
+)
+
 router.post(
     '/cart',
     ProductControllers.cartProducts
