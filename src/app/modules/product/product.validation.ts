@@ -8,7 +8,7 @@ export const productSchema = z.object({
         category: z.string().min(1, 'Category is required'),
         brand: z.string().min(1, 'Brand is required'),
         stock: z.number().nonnegative('Stock must be a non-negative number'),
-        rating: z.number().min(0).max(5, 'Rating must be between 0 and 5'),
+        rating: z.number().min(0).max(5, 'Rating must be between 0 and 5'), //will use react rating
         price: z.number().positive('Price must be a positive number'),
         image: z.string().url('Image URL must be valid'),
       })
