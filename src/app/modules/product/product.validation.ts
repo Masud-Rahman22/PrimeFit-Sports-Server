@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Zod schema for Product validation
-export const productSchema = z.object({
+export const productValidationSchema = z.object({
     body: z.object({
         name: z.string().min(1, 'Product name is required'),
         description: z.string().min(1, 'Product description is required'),
@@ -14,4 +14,6 @@ export const productSchema = z.object({
       })
 });
 
-export type ProductValidationSchema = z.infer<typeof productSchema>;
+export const ProductValidation = {
+    productValidationSchema
+  };
