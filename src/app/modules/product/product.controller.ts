@@ -9,7 +9,7 @@ const createProduct = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Rentals retrieved successfully',
+    message: 'Product is created successfully',
     data: result,
   });
 });
