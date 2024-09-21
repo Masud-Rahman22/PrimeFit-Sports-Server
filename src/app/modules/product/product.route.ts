@@ -16,6 +16,11 @@ router.get(
   ProductControllers.getASingleProduct
 )
 
+router.get(
+  '/',
+  ProductControllers.getAllProducts
+)
+
 router.post(
     '/cart',
     ProductControllers.cartProducts

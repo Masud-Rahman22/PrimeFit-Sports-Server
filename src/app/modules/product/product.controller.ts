@@ -25,6 +25,16 @@ sendResponse(res, {
 });
 });
 
+const getAllProducts = catchAsync(async (req, res) => {
+const result = await ProductServices.getAllProductFromDB()
+sendResponse(res, {
+  statusCode: httpStatus.OK,
+  success: true,
+  message: 'All products are retrieved successfully',
+  data: result,
+});
+});
+
 const cartProducts = catchAsync(async (req, res) => {
     const cartProductInfo = req.body;
   const result = await ProductServices.cartProductIntoDB(cartProductInfo)
@@ -39,5 +49,6 @@ const cartProducts = catchAsync(async (req, res) => {
 export const ProductControllers = {
   createProduct,
   getASingleProduct,
-  cartProducts
+  cartProducts,
+  getAllProducts
 };

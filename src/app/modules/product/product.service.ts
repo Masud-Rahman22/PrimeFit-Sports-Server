@@ -11,12 +11,19 @@ const getASingleProductFromDB = async (id:string) => {
   return result;
 };
 
+const getAllProductFromDB = async () => {
+  const result = await Product.find();
+  return result;
+};
+
 const cartProductIntoDB = async (payload: IProduct) => {
   const result = await Product.create(payload);
   return result;
 };
+
 export const ProductServices = {
   createProductIntoDB,
   getASingleProductFromDB,
-  cartProductIntoDB
+  cartProductIntoDB,
+  getAllProductFromDB
 };
