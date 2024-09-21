@@ -5,7 +5,7 @@ const productSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: true,
-    trim: true,
+    trim: true, // to remove white space
   },
   description: {
     type: String,
