@@ -5,6 +5,12 @@ const createProductIntoDB = async (payload: IProduct) => {
   const result = await Product.create(payload);
   return result;
 };
+
+const cartProductIntoDB = async (payload: IProduct) => {
+  const result = await Product.create(payload);
+  return result;
+};
 export const ProductServices = {
   createProductIntoDB,
+  cartProductIntoDB
 };

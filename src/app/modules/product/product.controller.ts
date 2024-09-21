@@ -14,6 +14,18 @@ const createProduct = catchAsync(async (req, res) => {
   });
 });
 
+const cartProducts = catchAsync(async (req, res) => {
+    const cartProductInfo = req.body;
+  const result = await ProductServices.cartProductIntoDB(cartProductInfo)
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product is added to cart successfully',
+    data: result,
+  });
+});
+
 export const ProductControllers = {
-  createProduct
+  createProduct,
+  cartProducts
 };

@@ -11,4 +11,9 @@ router.post(
   ProductControllers.createProduct,
 );
 
+router.post(
+    '/cart',
+    ProductControllers.cartProducts
+)
+
 export const ProductRoutes = router;
