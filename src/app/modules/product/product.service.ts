@@ -1,3 +1,4 @@
+import { Cart } from './cart.model';
 import { IProduct } from './product.interface';
 import { Product } from './product.model';
 
@@ -36,7 +37,7 @@ const updateProdcutIntoDB = async (id: string, payload: IProduct) => {
   };
 
 const cartProductIntoDB = async (payload: IProduct) => {
-  const result = await Product.create(payload);
+  const result = await Cart.create(payload);
   return result;
 };
 

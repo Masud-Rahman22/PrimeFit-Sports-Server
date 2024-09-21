@@ -18,11 +18,15 @@ router.get('/', ProductControllers.getAllProducts);
 router.patch('/:_id', ProductControllers.deleteAProduct);
 
 router.put(
-    '/:_id',
-    validateRequest(ProductValidation.updateProductValidationSchema),
-    ProductControllers.updateAProduct
-)
+  '/:_id',
+  validateRequest(ProductValidation.updateProductValidationSchema),
+  ProductControllers.updateAProduct,
+);
 
-router.post('/cart', ProductControllers.cartProducts);
+router.post(
+  '/cart',
+  validateRequest(ProductValidation.productValidationSchema),
+  ProductControllers.cartProducts,
+);
 
 export const ProductRoutes = router;
