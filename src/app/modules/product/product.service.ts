@@ -28,6 +28,13 @@ const deleteAProductFromDB = async (id:string) => {
   return updatedProductInfo;
 };
 
+const updateProdcutIntoDB = async (id: string, payload: IProduct) => {
+    const result = await Product.findByIdAndUpdate(id, payload, {
+      new: true,
+    });
+    return result;
+  };
+
 const cartProductIntoDB = async (payload: IProduct) => {
   const result = await Product.create(payload);
   return result;
@@ -38,5 +45,6 @@ export const ProductServices = {
   getASingleProductFromDB,
   cartProductIntoDB,
   getAllProductFromDB,
-  deleteAProductFromDB
+  deleteAProductFromDB,
+  updateProdcutIntoDB
 };
