@@ -15,6 +15,8 @@ router.get('/:_id', ProductControllers.getASingleProduct);
 
 router.get('/', ProductControllers.getAllProducts);
 
+router.get('/categories', ProductControllers.getAllCategories)
+
 router.patch('/:_id', ProductControllers.deleteAProduct);
 
 router.put(

@@ -5,6 +5,7 @@ import { ProductServices } from './product.service';
 
 const createProduct = catchAsync(async (req, res) => {
   const productInfo = req.body;
+  console.log(productInfo)
   const result = await ProductServices.createProductIntoDB(productInfo);
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -68,11 +69,23 @@ const cartProducts = catchAsync(async (req, res) => {
   });
 });
 
+const getAllCategories = catchAsync(async (req, res) => {
+  const result = await ProductServices.getAllCategoriesFromDB();
+  console.log(result);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product categories is fetched successfully',
+    data: result,
+  });
+});
+
 export const ProductControllers = {
   createProduct,
   getASingleProduct,
   cartProducts,
   getAllProducts,
   deleteAProduct,
-  updateAProduct
+  updateAProduct,
+  getAllCategories
 };

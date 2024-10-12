@@ -41,11 +41,17 @@ const cartProductIntoDB = async (payload: IProduct) => {
   return result;
 };
 
+const getAllCategoriesFromDB = async () => {
+  const result = await Product.find({}, 'category');
+  return result;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getASingleProductFromDB,
   cartProductIntoDB,
   getAllProductFromDB,
   deleteAProductFromDB,
-  updateProdcutIntoDB
+  updateProdcutIntoDB,
+  getAllCategoriesFromDB
 };
