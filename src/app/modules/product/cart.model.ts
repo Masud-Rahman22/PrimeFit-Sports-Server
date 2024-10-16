@@ -5,7 +5,7 @@ const cartSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: true,
-    trim: true, // to remove white space
+    trim: true,
   },
   description: {
     type: String,
@@ -40,7 +40,8 @@ const cartSchema = new Schema<IProduct>({
     required: true,
   },
   isDeleted: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 }, { timestamps: true });
 

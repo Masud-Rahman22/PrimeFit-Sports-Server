@@ -27,7 +27,6 @@ router.put(
 
 router.post(
   '/cart',
-  validateRequest(ProductValidation.productValidationSchema),
   ProductControllers.cartProducts,
 );
 
