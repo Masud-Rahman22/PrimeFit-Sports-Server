@@ -1,7 +1,11 @@
 import mongoose, { Schema } from 'mongoose';
-import { IProduct } from './product.interface';
+import { ICartProduct } from './cart.interface';
 
-const cartSchema = new Schema<IProduct>({
+const cartSchema = new Schema<ICartProduct>({
+  productId: {
+    type: String,
+    ref: 'Product'
+  },
   name: {
     type: String,
     required: true,
@@ -45,4 +49,4 @@ const cartSchema = new Schema<IProduct>({
   }
 }, { timestamps: true });
 
-export const Cart = mongoose.model<IProduct>('Cart', cartSchema);
+export const Cart = mongoose.model<ICartProduct>('Cart', cartSchema);

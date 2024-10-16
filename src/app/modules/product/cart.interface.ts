@@ -1,4 +1,7 @@
-export interface IProduct {
+// import { Types } from 'mongoose';
+
+export interface ICartProduct {
+  productId: string;
   name: string;
   description: string;
   category: string;

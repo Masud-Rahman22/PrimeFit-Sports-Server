@@ -7,7 +7,7 @@ const createProductIntoDB = async (payload: IProduct) => {
   return result;
 };
 
-const getASingleProductFromDB = async (id:string) => {
+const getASingleProductFromDB = async (id: string) => {
   const result = await Product.findById(id);
   return result;
 };
@@ -17,7 +17,7 @@ const getAllProductFromDB = async () => {
   return result;
 };
 
-const deleteAProductFromDB = async (id:string) => {
+const deleteAProductFromDB = async (id: string) => {
   const product = await Product.findById(id);
   if (!product) {
     throw new Error('Product not found');
@@ -30,11 +30,11 @@ const deleteAProductFromDB = async (id:string) => {
 };
 
 const updateProdcutIntoDB = async (id: string, payload: IProduct) => {
-    const result = await Product.findByIdAndUpdate(id, payload, {
-      new: true,
-    });
-    return result;
-  };
+  const result = await Product.findByIdAndUpdate(id, payload, {
+    new: true,
+  });
+  return result;
+};
 
 const cartProductIntoDB = async (payload: IProduct) => {
   const result = await Cart.create(payload);
@@ -46,6 +46,17 @@ const getAllCategoriesFromDB = async () => {
   return result;
 };
 
+const getAllCartProductsFromDB = async () => {
+  try {
+    const result = await Cart.find();
+    console.log('Cart products:', result);
+    return result;
+  } catch (error) {
+    console.error('Error fetching cart products:', error);
+    return null;
+  }
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getASingleProductFromDB,
@@ -53,5 +64,6 @@ export const ProductServices = {
   getAllProductFromDB,
   deleteAProductFromDB,
   updateProdcutIntoDB,
-  getAllCategoriesFromDB
+  getAllCategoriesFromDB,
+  getAllCartProductsFromDB,
 };

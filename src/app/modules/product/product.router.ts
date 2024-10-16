@@ -30,4 +30,9 @@ router.post(
   ProductControllers.cartProducts,
 );
 
+router.get(
+  '/cart',
+  ProductControllers.getAllCartProducts
+)
+
 export const ProductRoutes = router;
