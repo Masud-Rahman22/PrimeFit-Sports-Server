@@ -57,45 +57,10 @@ const updateAProduct = catchAsync(async (req, res) => {
   });
 });
 
-const cartProducts = catchAsync(async (req, res) => {
-  const cartProductInfo = req.body;
-  const result = await ProductServices.cartProductIntoDB(cartProductInfo.product);
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Product is added to cart successfully',
-    data: result,
-  });
-});
-
-const getAllCategories = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllCategoriesFromDB();
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Product categories is fetched successfully',
-    data: result,
-  });
-});
-
-const getAllCartProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllCartProductsFromDB();
-  console.log(result)
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Products of cart is fetched successfully',
-    data: result,
-  });
-});
-
 export const ProductControllers = {
   createProduct,
   getASingleProduct,
-  cartProducts,
   getAllProducts,
   deleteAProduct,
   updateAProduct,
-  getAllCategories,
-  getAllCartProducts
 };

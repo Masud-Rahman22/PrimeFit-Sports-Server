@@ -41,15 +41,10 @@ const cartProductIntoDB = async (payload: IProduct) => {
   return result;
 };
 
-const getAllCategoriesFromDB = async () => {
-  const result = await Product.find({}, 'category');
-  return result;
-};
-
 const getAllCartProductsFromDB = async () => {
   try {
-    const result = await Cart.find();
-    console.log('Cart products:', result);
+    const result = await Cart.find().populate('productId')
+    console.log(result)
     return result;
   } catch (error) {
     console.error('Error fetching cart products:', error);
@@ -64,6 +59,5 @@ export const ProductServices = {
   getAllProductFromDB,
   deleteAProductFromDB,
   updateProdcutIntoDB,
-  getAllCategoriesFromDB,
   getAllCartProductsFromDB,
 };
