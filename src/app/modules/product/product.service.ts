@@ -1,4 +1,3 @@
-import { Cart } from './cart.model';
 import { IProduct } from './product.interface';
 import { Product } from './product.model';
 
@@ -36,28 +35,10 @@ const updateProdcutIntoDB = async (id: string, payload: IProduct) => {
   return result;
 };
 
-const cartProductIntoDB = async (payload: IProduct) => {
-  const result = await Cart.create(payload);
-  return result;
-};
-
-const getAllCartProductsFromDB = async () => {
-  try {
-    const result = await Cart.find().populate('productId')
-    console.log(result)
-    return result;
-  } catch (error) {
-    console.error('Error fetching cart products:', error);
-    return null;
-  }
-};
-
 export const ProductServices = {
   createProductIntoDB,
   getASingleProductFromDB,
-  cartProductIntoDB,
   getAllProductFromDB,
   deleteAProductFromDB,
   updateProdcutIntoDB,
-  getAllCartProductsFromDB,
 };
