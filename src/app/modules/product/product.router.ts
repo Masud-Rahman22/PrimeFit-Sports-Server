@@ -11,6 +11,8 @@ router.post(
   ProductControllers.createProduct,
 );
 
+router.get('/by-name',ProductControllers.getProductByName)
+
 router.get('/:_id', ProductControllers.getASingleProduct);
 
 router.get('/', ProductControllers.getAllProducts);

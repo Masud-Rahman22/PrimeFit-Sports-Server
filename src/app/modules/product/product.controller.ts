@@ -57,10 +57,31 @@ const updateAProduct = catchAsync(async (req, res) => {
   });
 });
 
+const getProductByName = catchAsync(async(req,res)=>{
+  const { name } = req.query;
+  console.log(name)
+   if (typeof name !== 'string') {
+    return sendResponse(res, {
+      statusCode: httpStatus.BAD_REQUEST,
+      success: false,
+      message: 'Product name must be a string.',
+      data:null
+    });
+  }
+ const result = await ProductServices.getProductByNameFromDB(name)
+ sendResponse(res, {
+  statusCode: httpStatus.OK,
+  success: true,
+  message: 'Product is fetched successfully',
+  data: result,
+});
+})
+
 export const ProductControllers = {
   createProduct,
   getASingleProduct,
   getAllProducts,
   deleteAProduct,
   updateAProduct,
+  getProductByName
 };
