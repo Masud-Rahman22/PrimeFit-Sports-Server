@@ -48,7 +48,7 @@ const deleteAProduct = catchAsync(async (req, res) => {
 
 const updateAProduct = catchAsync(async (req, res) => {
   const { _id } = req.params;
-  const result = await ProductServices.updateProdcutIntoDB(_id,req.body);
+  const result = await ProductServices.updateProdcutIntoDB(_id, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -57,25 +57,25 @@ const updateAProduct = catchAsync(async (req, res) => {
   });
 });
 
-const getProductByName = catchAsync(async(req,res)=>{
+const getProductByName = catchAsync(async (req, res) => {
   const { name } = req.query;
-  console.log(name)
-   if (typeof name !== 'string') {
+  console.log(name);
+  if (typeof name !== 'string') {
     return sendResponse(res, {
       statusCode: httpStatus.BAD_REQUEST,
       success: false,
       message: 'Product name must be a string.',
-      data:null
+      data: null,
     });
   }
- const result = await ProductServices.getProductByNameFromDB(name)
- sendResponse(res, {
-  statusCode: httpStatus.OK,
-  success: true,
-  message: 'Product is fetched successfully',
-  data: result,
+  const result = await ProductServices.getProductByNameFromDB(name);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product is fetched successfully',
+    data: result,
+  });
 });
-})
 
 export const ProductControllers = {
   createProduct,
@@ -83,5 +83,5 @@ export const ProductControllers = {
   getAllProducts,
   deleteAProduct,
   updateAProduct,
-  getProductByName
+  getProductByName,
 };

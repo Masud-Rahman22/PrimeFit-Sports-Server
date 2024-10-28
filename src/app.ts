@@ -8,19 +8,19 @@ const app: Application = express();
 
 // parsers
 app.use(express.json());
-app.use(cookieParser())
-app.use(cors({ origin: ['http://localhost:5173'],credentials:true }));
+app.use(cookieParser());
+app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
-app.use('/api/v1', router)
+app.use('/api/v1', router);
 
 const test = (req: Request, res: Response) => {
   const a = 10;
-  res.sendStatus(a)
-}
+  res.sendStatus(a);
+};
 
 app.get('/', test);
 
-app.use(globalErrorHandler)
-app.use(notFound)
+app.use(globalErrorHandler);
+app.use(notFound);
 export default app;
 // console.log(process.cwd())

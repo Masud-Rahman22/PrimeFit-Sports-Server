@@ -22,7 +22,7 @@ const loginUser = async (payload: TLoginInfo) => {
   }
 
   const jwtPayload = {
-    userId: user?._id
+    userId: user?._id,
   };
 
   const accessToken = createToken(
@@ -54,5 +54,5 @@ const getUserFromDB = async (id: string) => {
 export const UserServices = {
   createUserIntoDB,
   loginUser,
-  getUserFromDB
+  getUserFromDB,
 };

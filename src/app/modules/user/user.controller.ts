@@ -1,4 +1,4 @@
-import jwt, { JwtPayload }  from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
@@ -9,7 +9,7 @@ import config from '../../config';
 
 const createUser = catchAsync(async (req, res) => {
   const userData = req.body;
-  console.log(userData)
+  console.log(userData);
   const result = await UserServices.createUserIntoDB(userData);
   sendResponse(res, {
     statusCode: httpStatus.OK,

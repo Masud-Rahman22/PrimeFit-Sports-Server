@@ -35,7 +35,7 @@ const updateProdcutIntoDB = async (id: string, payload: IProduct) => {
   return result;
 };
 
-const getProductByNameFromDB = async (name:string)=>{
+const getProductByNameFromDB = async (name: string) => {
   try {
     const products = await Product.find({ name: new RegExp(name, 'i') }); // Case-insensitive search
     return products;
@@ -47,7 +47,7 @@ const getProductByNameFromDB = async (name:string)=>{
       throw new Error('An unexpected error occurred while fetching product.');
     }
   }
-}
+};
 
 export const ProductServices = {
   createProductIntoDB,
@@ -55,5 +55,5 @@ export const ProductServices = {
   getAllProductFromDB,
   deleteAProductFromDB,
   updateProdcutIntoDB,
-  getProductByNameFromDB
+  getProductByNameFromDB,
 };

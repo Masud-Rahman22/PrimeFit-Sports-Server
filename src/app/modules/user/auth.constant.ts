@@ -1,3 +1,3 @@
 export const USER_ROLE = {
-    user: 'user'
-  } as const;
+  user: 'user',
+} as const;

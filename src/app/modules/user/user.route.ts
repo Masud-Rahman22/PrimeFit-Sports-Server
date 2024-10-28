@@ -17,9 +17,6 @@ router.post(
   UserControllers.loginUser,
 );
 
-router.get(
-    '/user',
-    UserControllers.getUser
-)
+router.get('/user', UserControllers.getUser);
 
 export const AuthRoutes = router;
