@@ -59,7 +59,6 @@ const updateAProduct = catchAsync(async (req, res) => {
 
 const getProductByName = catchAsync(async (req, res) => {
   const { name } = req.query;
-  console.log(name);
   if (typeof name !== 'string') {
     return sendResponse(res, {
       statusCode: httpStatus.BAD_REQUEST,

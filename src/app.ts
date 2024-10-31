@@ -11,14 +11,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
-app.use('/api/v1', router);
+app.get('/', (req: Request, res: Response) => {
+  res.send(
+    ' PrimeFit Sports at your service !',
+  );
+});
 
-const test = (req: Request, res: Response) => {
-  const a = 10;
-  res.sendStatus(a);
-};
-
-app.get('/', test);
 
 app.use(globalErrorHandler);
 app.use(notFound);
